@@ -1,0 +1,11 @@
+CREATE DATABASE agenda;
+
+USE DATABASE agenda; 
+
+CREATE TABLE contacts (
+	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(100),
+	phone VARCHAR(15),
+	email VARCHAR(180),
+	observation TEXT
+);
