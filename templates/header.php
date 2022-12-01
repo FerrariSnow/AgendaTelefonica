@@ -1,5 +1,13 @@
 <?php 
-  include_once("config/url.php");
+  include_once("url.php");
+  include_once("process.php");
+
+  //limpa a mensagem de sessão
+  if(isset($_SESSION['msg'])) {
+    $printMsg = $_SESSION['msg'];
+    $_SESSION['msg'] = '';
+  }
+
 ?>
   
 <!DOCTYPE html>
@@ -8,7 +16,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="img/favicon.svg" type="image/x-icon">
+  <link rel="shortcut icon" href="<?= $BASE_URL ?>img/favicon.svg" type="image/x-icon">
   <title>Agenda de Contatos</title>
   
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -23,13 +31,13 @@
 
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
-    <a class ="navbar-brand" href="index.php">
-      <img src="./img/logo.png" alt="Agenda">
+    <a class ="navbar-brand" href="<?= $BASE_URL ?>index.php">
+      <img src="<?= $BASE_URL ?>img/logo.png" alt="Agenda">
     </a>
 
     <div class="navbar-nav">
-      <a class="nav-link active" id="home-link" href="index.php">Agenda</a>
-      <a class="nav-link active" id="create-link" href="create.php">Criar Contato</a>
+      <a class="nav-link active" id="home-link" href="<?= $BASE_URL ?>index.php">Agenda</a>
+      <a class="nav-link active" id="create-link" href="<?= $BASE_URL ?>create.php">Criar Contato</a>
     </div>
   </nav>
 </header>
