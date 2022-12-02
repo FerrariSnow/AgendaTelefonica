@@ -1,9 +1,44 @@
 <?php 
   include_once("templates/header.php");
+  include_once("config/process.php");
 ?>
 
-  <h1>#BullsNation</h1>
-  <i class="fas fa-eye"></i>
+  <div class="container">
+    <?php if(isset($printMsg) && $printMsg !=  ''): ?>
+      <p id="msg"><?= $printMsg ?></p>
+    <?php endif; ?>
+      <h1 id="main-title">Minha Agenda</h1>
+    <?php if(count($contacts) > 0): ?>
+      <table class="table" id="contacts-table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Email</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach($contacts as $contact): ?>
+            <tr>
+              <td scope="row"><?= $contact['id']?></td>
+              <td scope="row"><?= $contact['name']?></td>
+              <td scope="row"><?= $contact['phone']?></td>
+              <td scope="row"><?= $contact['email']?></td>
+              <td class="actions">
+                <a href="#"><i class="fas fa-eye check-icon"></i></a>
+                <a href="#"><i class="far fa-edit edit-icon"></i></a>
+                <button type="submit"><i class="fas fa-times delete-icon"></i></button>
+              </td>
+            </tr>
+          <?php endforeach; ?>  
+          </tbody>
+      </table>
+    <?php else: ?>
+      <p id="empty-list-text">Ainda não há contatos na sua agenda, <a href="create.php">adicione contatos aqui</a>.</p>
+    <?php endif; ?>  
+  </div>
 
 <?php 
   include_once("templates/footer.php");
