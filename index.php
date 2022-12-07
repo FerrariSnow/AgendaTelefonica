@@ -27,8 +27,8 @@
               <td scope="row"><?= $contact['phone']?></td>
               <td scope="row"><?= $contact['email']?></td>
               <td class="actions">
-                <a href="view.php?id=<?= $contact['id']?>"><i class="fas fa-eye check-icon"></i></a>
-                <a href="edit.php?id=<?= $contact['id']?>"><i class="far fa-edit edit-icon"></i></a>
+                <a href="<?= $BASE_URL ?>view.php?id=<?= $contact['id']?>"><i class="fas fa-eye check-icon"></i></a>
+                <a href="<?= $BASE_URL ?>edit.php?id=<?= $contact['id']?>"><i class="far fa-edit edit-icon"></i></a>
                 <form class="delete-form" action="<?= $BASE_URL ?>config/process.php" method="POST">
                   <input type="hidden" name="type" value="delete">
                   <input type="hidden" name="id" value="<?= $contact['id'] ?>">
@@ -40,7 +40,7 @@
           </tbody>
       </table>
     <?php else: ?>
-      <p id="empty-list-text">Ainda não há contatos na sua agenda, <a href="create.php">adicione contatos aqui</a>.</p>
+      <p id="empty-list-text">Ainda não há contatos na sua agenda, <a href="<?= $BASE_URL ?>create.php">adicione contatos aqui</a>.</p>
     <?php endif; ?>  
   </div>
 
