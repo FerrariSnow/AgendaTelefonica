@@ -3,9 +3,9 @@
   include_once("process.php");
 
   //limpa a mensagem de sessão
-  if(isset($_SESSION['msg'])) {
-    $printMsg = $_SESSION['msg'];
-    $_SESSION['msg'] = '';
+  if(isset($_SESSION["msg"])) {
+    $_SESSION["msg"] = '';
+    $printMsg = $_SESSION["msg"];
   }
 
 ?>
@@ -39,7 +39,7 @@
 
     <div class="navbar-nav">
       <a class="nav-link active" id="home-link" href="<?= $BASE_URL ?>index.php">Agenda</a>
-      <a class="nav-link active" id="create-link" href="<?= $BASE_URL ?>create.php">Criar Contato</a>
+      <a class="nav-link active" href="<?= $BASE_URL ?>create.php">Criar Contato</a>
     </div>
   </nav>
 </header>
