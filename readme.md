@@ -33,3 +33,11 @@ $pass = "suaSenha";
 
 # Acessar o servidor pelo navegador em localhost/pastaDoProjeto/index.php
 ```
+
+### 🛠 Tecnologias
+
+As seguintes ferramentas foram usadas na construção do projeto:
+
+- [PHP](https://www.php.net/)
+- [SASS](https://sass-lang.com/)
+- [Bootstrap](https://getbootstrap.com/)
