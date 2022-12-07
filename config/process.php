@@ -30,7 +30,7 @@ if(!empty($data)) {
     try {
 
       $stmt->execute();
-      $_SESSION["msg"]  = "Contato criado com sucesso.";
+      $_SESSION["msg"]  = "Contact sucessfully created.";
     
     } catch (PDOException $e) {
       // erro na conexão
@@ -58,7 +58,26 @@ if(!empty($data)) {
     try {
 
       $stmt->execute();
-      $_SESSION["msg"] = "Contato editado com sucesso.";
+      $_SESSION["msg"] = "Contact sucessfully edited.";
+    
+    } catch (PDOException $e) {
+      // erro na conexão
+      $error = $e->getMessage();
+      echo "Erro: $error";
+    }
+
+  } else if($data["type"] === "delete") {
+    $id = $data["id"];
+
+    $query = "DELETE FROM contacts  WHERE id = :id";
+
+    $stmt = $conn->prepare($query);
+    $stmt->bindParam(":id", $id);
+
+    try {
+
+      $stmt->execute();
+      $_SESSION["msg"] = "Contact sucessfully deleted.";
     
     } catch (PDOException $e) {
       // erro na conexão
