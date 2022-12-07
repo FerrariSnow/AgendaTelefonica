@@ -9,7 +9,7 @@
   <?php include_once("templates/backbtn.html"); ?>
   
   <h1 id="main-title">Edit Contact</h1>
-  <form id="create-form" action="config/process.php" method="POST">
+  <form id="create-form" action="<?= $BASE_URL ?>config/process.php" method="POST">
     <input type="hidden" name="type" value="update">
     <input type="hidden" name="id" value="<?= $contact['id'] ?>">
     <div class="form-group">
