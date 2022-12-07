@@ -30,7 +30,35 @@ if(!empty($data)) {
     try {
 
       $stmt->execute();
-      $printMsg = "Contato criado com sucesso.";
+      $_SESSION["msg"]  = "Contato criado com sucesso.";
+    
+    } catch (PDOException $e) {
+      // erro na conexão
+      $error = $e->getMessage();
+      echo "Erro: $error";
+    }
+
+  } else if($data["type"] === "update") {
+    $id = $data["id"];
+    $name = $data["name"];
+    $phone = $data["phone"];
+    $email = $data["email"];
+    $observation = $data["observation"];
+
+    $query = "UPDATE contacts SET name = :name, phone = :phone, email = :email, observation = :observation WHERE id = :id";
+
+    $stmt = $conn->prepare($query);
+    $stmt->bindParam(":id", $id);
+    $stmt->bindParam(":name", $name);
+    $stmt->bindParam(":phone", $phone);
+    $stmt->bindParam(":email", $email);
+    $stmt->bindParam(":observation", $observation);
+
+
+    try {
+
+      $stmt->execute();
+      $_SESSION["msg"] = "Contato editado com sucesso.";
     
     } catch (PDOException $e) {
       // erro na conexão
